@@ -1,0 +1,80 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: 0%;
+}
+body{
+    background-color: rgb(172, 165, 165);
+    
+}
+.yapp{
+    margin: 25px;
+    padding: 20px;
+    border: 2px solid rgb(7, 7, 7);
+    box-shadow: 2px 2px 2px black inset,
+                2px 2px 4px black inset,
+                2px 2px 6px black inset,
+                2px 4px 10px black ;
+    border-radius: 10px;
+    background-color: gray;
+}
+p span{
+    font-size: large;
+    margin-left: -40px;
+    color: rgb(255, 255, 255);
+    background-image:linear-gradient(to right,rgb(14, 13, 13),rgb(126, 123, 123));
+    border-radius: 6px;
+    text-shadow: 0px 0px 1px rgb(255, 255, 255);
+    
+}
+h1{
+    text-decoration: underline;
+}
+
+p {
+    margin-left:50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+.yaap{
+    margin-right: 40%;
+    justify-content: left;
+    display:flex;
+    text-align: center;
+    float: right;
+ 
+}
+img{
+    width: 210px;
+    height:130px;
+    border-radius: 50%;
+}
+
+
+@media only screen and (max-width:600px){
+    body{
+        background-color: rgb(235, 235, 243);
+    }
+}
+.btm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+   
+    
+
+}
+.btm button a{
+    text-decoration:none;
+    color:black;
+}
+.btm button:hover{
+    
+    box-shadow: 2px 2px 2px black;
+}
+hr{
+    height: 1px;
+    background-color: white;
+    box-shadow: 2px 2px 8px black;
+}
