@@ -9,13 +9,14 @@
    margin-top: 16%;
    padding: 2%;
     border: px solid rgb(17, 16, 16);
-    color: #f7f7f7;
+    color: #ffffff;
     opacity:0.5 ;
+    text-shadow: 1px 1px 20px rgb(255, 255, 255);
    
 }   
 body{
    
-    background: linear-gradient(45deg, #0f0d0d, #646263, #1b1c1d, #bdc2c1);
+    background: linear-gradient(-45deg, #0f0d0d, #646263, #1b1c1d, #bdc2c1);
 	background-size: 400% 400%;
 	animation: wuu 19s ease infinite;
 	
@@ -32,11 +33,7 @@ body{
 	}
 
 }
-
-
-    
-
-   
+ 
 .yuu{
     margin-top: 1px;
    
@@ -44,9 +41,6 @@ body{
 .yuu ul{
     display: flex;
     justify-content: center;
-    
-  
-
 }
 .yuu ul{
 
@@ -72,31 +66,48 @@ body{
     align-items: center;
    
 }
-.yuu ul li a:hover{
-    background: #969494;
+.project ul li a:hover{
+    background: none;
     border-radius:2%;
     transform: scale(1.0);
     transition-duration: 2s;
 
    
 }
+.projects ul li a:hover{
+    background: none;
+    transform: scale(1.0);
+    transition-duration: 2s;
+    text-shadow: 0px 0px 2px black,
+    0px 0px 4px black,
+    0px 0px 6px black,
+    0px 0px 8px black,
+    0px 0px 10px black;
+    transform: scale(1.0);
+color: #fff;
+   
+}
 
 
-
-
-.project {
+.project{
     margin-top:70px;
+    overflow: hidden;
+    transition: all 1s;
+    position: relative;
 }
 .project p{
     margin:50px;
     display: flex;
     justify-content: center;
     text-align: center;
+    
 }
 .project a{
     text-decoration: none;
-    color: #ffffff;
-    
+    color: #0c0c0c;
+    border: px solid black;
+    border-radius: 5%;
+  
 }
 .project a:hover{
     text-shadow: 0px 0px 2px black,
@@ -105,15 +116,8 @@ body{
                  0px 0px 8px black,
                  0px 0px 10px black;
     transform: scale(1.2);
+    color: #fff;
 }
 
     
-    
-    
 
-
-.project a::after{
-    content:"";
-    background-image: linear-gradient(to right,black,gray,white);
-
-}
