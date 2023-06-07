@@ -14,6 +14,8 @@
     text-shadow: 1px 1px 20px rgb(255, 255, 255);
    
 }   
+
+
 body{
    
     background: linear-gradient(-45deg, #0f0d0d, #646263, #1b1c1d, #bdc2c1);
@@ -119,5 +121,43 @@ color: #fff;
     color: #fff;
 }
 
-    
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
 
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #141414;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #e7e1e1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+.main button{
+    background-color: transparent;
+    margin-top: 4px;
+    margin-left: 4px;
+    border: none;
+}
