@@ -1,5 +1,4 @@
-*{
-    padding: 0%;
+*{  padding: 0%;
     margin: 0%;
 }
 body{
@@ -21,62 +20,40 @@ body{
 	}
 
 }
-.ori{
 
-    border: px solid black;
-    
-}
-.ori h1,h3,pre,p,h2{
+.edd h1 {
     border: px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2%;
-   
-             
+    margin: 5%;
 }
-
-.ori ul{
-   padding: 2%;
-   display: grid;
-   place-items: center;
-   
-}
-.ori br{
-    padding: 2%;
+.edd ul{
     display: grid;
     place-items: center;
-   
 }
-.ori pre{
-    padding: 0%;
-}
-.ori p{
-    padding: 0%;
-}
-.ori span{
-    padding: 0%;
-    padding-bottom: 16px;
-    position: absolute;
+
+.edd p{
+    border: px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+    margin-bottom: 2%;
 }
 .btm button a{
     text-decoration:none;
     color:black;
+   
 }
 .btm button:hover{
     
     box-shadow: 2px 2px 2px black;
+   
 }
 .btm{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 5%;
-}
-.ori ul{
-    margin: 0%;
-
-}
-.ori h2 {
-    padding-bottom: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
 }
