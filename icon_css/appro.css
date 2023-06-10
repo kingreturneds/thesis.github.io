@@ -1,0 +1,86 @@
+*{
+    padding: 0%;
+    margin: 0%
+}
+table{
+    display: grid;
+    place-items: center;
+}
+table tr th{
+    margin: 5%;
+    border: px solid black;
+    padding: 1%;
+        
+}
+body{
+   
+    background: linear-gradient(-45deg, #0f0d0d, #646263, #1b1c1d, #bdc2c1);
+	background-size: 400% 400%;
+	animation: wuu 19s ease infinite;
+	
+}
+@keyframes wuu {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+
+}
+.apro ,h1,h2,h3,h4,p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+}
+.app h3{
+    border: px solid black;
+    justify-content: right;
+    align-items: right;
+   
+}
+.app h3 span{
+    position: absolute;
+    padding-bottom: 24px;
+    text-decoration: underline;
+
+}
+.ap {
+    display: grid;
+    place-items:center ;
+    
+}
+.paa{
+    display: grid;
+    place-items:center ;
+    
+}
+span{
+   position: absolute;
+   text-decoration: underline;  
+   padding-bottom: 24px;
+}
+p{
+    justify-content: left;
+}
+.btm button a{
+    text-decoration:none;
+    color:black;
+   
+}
+.btm button:hover{
+    
+    box-shadow: 2px 2px 2px black;
+   
+}
+.btm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
