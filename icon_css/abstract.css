@@ -7,6 +7,7 @@ body{
     background: linear-gradient(-45deg, #0f0d0d, #646263, #1b1c1d, #bdc2c1);
 	background-size: 600% 600%;
 	animation: wuu 19s ease infinite;
+    
    
 }
 @keyframes wuu {
@@ -26,7 +27,7 @@ body{
     grid-template-columns: 2fr  auto;
     grid-gap:10%;
     padding: 10px;
-         margin: 20px;
+         margin: 70px;
    background-color: transparent;
   
 }
@@ -39,4 +40,39 @@ body{
 .ess{
     margin:30px;
     padding: 20px;
+}
+.find{
+    margin:30px;
+    padding: 20px;
+   
+}
+.find p{
+    margin:30px;
+    padding: 20px;
+   
+}
+.finds {
+    margin:30px;
+    padding: 20px;
+  
+}
+.findw p{
+    margin:30px;
+    padding: 20px;
+   
+}
+.findw {
+    margin:30px;
+    padding: 20px;
+  
+}
+.finde p{
+    margin:30px;
+    padding: 20px;
+   
+}
+.finde {
+    margin:30px;
+    padding: 20px;
+  
 }
