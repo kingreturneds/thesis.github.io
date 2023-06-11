@@ -76,3 +76,19 @@ body{
     padding: 20px;
   
 }
+.btm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+    padding-top: 24%;
+
+}
+.btm button a{
+    text-decoration:none;
+    color:black;
+}
+.btm button:hover{
+    
+    box-shadow: 2px 2px 2px black;
+}
