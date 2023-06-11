@@ -22,3 +22,77 @@ body{
 	}
 
 }
+h1{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 24px;
+}
+.content-container{
+	display: grid;
+	grid : auto/auto auto;
+	grid-gap:10px;
+	margin: 50px;
+	padding: 25px;
+	border: px solid black;
+	box-shadow: 2px 2px 25px white;
+	
+}
+.content-container>div{
+	background-color: transparent;
+	padding: 26px;
+	
+}
+
+.content-container1{
+	display: grid;
+	grid : auto/auto auto auto;
+	grid-gap:10px;
+	margin: 50px;
+	padding: 25px;
+	border: px solid black;
+	box-shadow: 2px 2px 25px white;
+}
+.content-container1>div{
+	padding: 26px;
+	
+}
+.content-container2{
+	display: grid;
+	grid : auto/auto auto auto;
+	grid-gap:10px;
+	margin: 50px;
+	padding: 25px;
+	border: px solid black;
+	box-shadow: 2px 2px 25px white;
+}
+.content-container2>div{
+	padding: 26px;
+	
+}
+.content-container3{
+	display: grid;
+	grid : auto/auto auto auto;
+	grid-gap:10px;
+	margin: 50px;
+	padding: 25px;
+	border: px solid black;
+	box-shadow: 2px 2px 25px white;
+}
+.content-container3>div{
+	padding: 26px;
+	
+}
+.content-container4{
+	display: grid;
+	grid : auto/auto auto auto;
+	grid-gap:10px;
+	margin: 50px;
+	padding: 25px;
+	border: px solid black;
+	box-shadow: 2px 2px 25px white;
+}
+.content-container4>div{
+	padding: 26px;
+	
+}
