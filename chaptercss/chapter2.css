@@ -17,3 +17,12 @@
    border: 1px solid black;
     
 }
+.tables {
+    border: 1px solid black;
+    width: 32%;
+    padding: 29px;
+}
+.tables ,th {
+    border: px solid black;
+ 
+}
