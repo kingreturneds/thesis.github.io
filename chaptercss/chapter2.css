@@ -2,8 +2,18 @@
     padding: 0%;
     margin: 0%;
 }
-.flow1{
-    border: 1px solid black;
-    size: 100% 100%;
+
+.flow1 img {
+    width:25%;
+    height:25%;
+ 
+   border: 1px solid black;
+    
+}
+.flow2 img {
+    width:25%;
+    height:25%;
+   
+   border: 1px solid black;
     
 }
