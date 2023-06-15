@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chapter2</title>
+
+    <link rel="stylesheet" href="/chaptercss/chapter2.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <h1>Chapter 2</h1>
+    <h2>METHODOLOGY</h2>
+    <P>There are several methodologies and project management models that 
+        may be employed constructing our system. And we chose SDLC for developing RFID, Keypad Lock,
+         and SMS Security, an Arduino-Based with Alert System, the most efficient and possible shortest time to do so.
+        The researchers opted for the System Development Life Cycle (SDLC) because SDLC works by lowering the cost of 
+        software development while simultaneously improving quality and shortening production time. SDLC achieves these 
+        apparently divergent goals by following a plan that removes the typical pitfalls of software development projects. 
+        That plan starts by evaluating existing systems for<br>
+        The SDLC is a project management model that specifies the stages involved in taking a project from start to finish. (Retrieved From: https://stackify.com/what-is-sdlc/, 
+        November 22, 2022). The SDLC is a project management conceptual model that describes the steps of 
+        a system development project, from an initial feasibility assessment to the maintenance of the completed application.
+        SDLC is applicable to both technical and non-technical systems.</P>
+
+       <div class="methodimgs"></div><img src="/picture/methodPicture1.png">
+        <p>Figure 1.<br>System Development Life Cycle</p>
+
+        <p>First, Planning phase the project team determines the goals, objectives, and scope of the software development project. This involves identifying the stakeholders, analyzing the requirements, estimating resources and timelines, and creating a high-level plan for the project. The planning phase helps to establish a clear vision for the project and ensures that everyone involved is aligned on the project goals and objectives. This phase includes the Conceptualization, Discussion, brainstorming, Cost estimation, Project scheduling, Resource allocation, initial researching about the project, structuring the overall plan of building the system from start to finish.<br>
+            Second, Analysis phase project team analyzes the requirements of the software system to be developed. This includes identifying functional and non-functional requirements, defining the system architecture, creating use cases, and defining the data model. The analysis phase helps to ensure that the software system is designed to meet the needs of the users and stakeholders, and that the system architecture is well-suited to support the required functionality and performance. In this phase, the various researching activity will be conducted by the researchers. These activities includes Analyzation, Project Breakdown, researching related literatures over the internet, and browsing libraries to search for valuable information that can support the creation of the system, preparation, and presentation.<br>
+            Third, Design phase the project team creates a detailed design for the software system. This includes defining the system components, creating a detailed data model, designing the user interface, and creating a detailed system architecture. The design phase helps to ensure that the software system is well-structured and well-organized, with a clear separation of concerns and a well-defined interface between components. During this phase, the researchers built the electronic and hardware components of the system.<br>
+            Fourth, Implementation phase the project team develops the software system according to the design specifications. This involves coding, testing, debugging, and integrating different components of the system. The implementation phase helps to ensure that the software system is robust, reliable, and efficient, with a high degree of code quality and adherence to best practices. During this phase, the researchers gathered samples from various locations to test the consistency of the system.<br>
+            Last, Maintenance phase the project team maintains the software system and makes updates and changes as necessary. This includes fixing bugs, adding new features, and upgrading the system to support new hardware or software platforms. The maintenance phase is critical for ensuring that the software system remains relevant and useful over time, and that it continues to meet the changing needs of the users and stakeholders.</p>
+
+            <h3>Prototype Hardware Design</h3>
+            <p>The security system will be based on Arduino Mega 2560 R3 as the microcontroller and will be using a 1602 16x2 Character LCD module display to display the security’s state. And interface with MRFC-522 RC522 RFID reader, 56 Mh2 RFID IC key tags, SIM800L V2 5V wireless GSM GPRS, 4216 Piezoelectric Buzzer, SG90 Micro-servo motor, and 4x4 Matrix membrane keypad. 5V 3A OC power adapter will be plugged inside the property into an outlet to provide the main power supply for the system.</p>
+
+            <h3>Prototype Software Design</h3>
+            <p>The prototype will operate on a continuous loop since the main operation code will be written inside the loop () function of the Arduino microcontroller. The system will start by scanning the RFID card, then read if the card’s code is registered. If it is or not, it’ll be displayed on the LCD. The system will perform conditional statements. If it is not, the system will proceed on sending a SMS notification to the registered mobile number, then the alarm buzzer and LED lights will be activated. If it is yes, the system will proceed on generating an OTP, then process the unique code and see if it is valid after it gets inputted.<br>
+                Again, the system will be performing conditional statements. If it is not valid, the system will proceed on accepting it without opening the door, until it reaches its limit, once it does, the buzzer and LED lights will be activated. If the unique code is valid, the door will finally open, and the system will send a SMS to the registered mobile number for awareness, LED lights will be activated, and it’ll be displayed on the LCD. Finally, the door will open, and close again after the system counted 10 seconds. <br>
+                On the below page where you see the Figure 2 and 3, it shows what will happen in the whole system.</p>
+       
+                
+       <div class="flow1"></div><img src="/picture/flowchart1.png">
+       <p>Figure 2.
+        .<br>Main Operation of the System Part 1.</p>
+       <div class="flow2"></div><img src="/picture/flowchart2.png">
+       <p>Figure 3.
+       <br>Main Operation of the System Part 2.</p>
+       
+       
+        <h2>Calendar Activities</h2>
+        <h2>Description of Activities</h2>
+
+        <table>
+            <tr>
+                <th>
+                    SCHEDULE
+                </th>
+                <th>ACTIVITY</th>
+            </tr>
+            <tr>PLANNING PHASE</tr>
+            <th>October 10 - 16 2022
+            </th>
+            <th>Conceptualization<br>
+                Initial Researching
+            </th>
+
+            <tr>
+            <th>October 24 - 31 2022    </th>
+            <th>Discussion <br>
+                Brainstorming<br>
+                Structuring Plan</th>
+        </tr>
+            <tr>
+                <th>November 1 – 7 2022</th>
+                <th>Cost Estimation<br>
+                    Project Scheduling<br>
+                    Resources Allocation</th>
+        </tr>
+        <tr>
+            <th>ANALYSIS PHASE</th>
+            
+    </tr>
+    <tr>
+                <th>November 8 - 14 2022</th>
+                <th>Research</th>
+        </tr>
+<tr>
+    <th>November 15 - 21 2022</th>
+    <th>Literature Research</th>
+</tr>
+<tr><th>November 22 - 28 2022</th>
+<th>Analyzation<br>
+    Project Breakdown</th>
+</tr>
+<tr>
+    <th>November 29 – December 3 2022</th>
+    <th>Preparation<br>
+        Presentation</th>
+</tr>
+<tr>
+    <th>DESIGN PHASE</th>
+
+</tr>
+<tr>
+    <th>February 1 – 7, 2023</th>
+    <th>Acquisition of Materials</th>
+</tr>
+<tr>
+    <th>February 8 – 14, 2023</th>
+    <th>Prototype Assembly</th>
+</tr>
+<tr>
+    <th>February 15 – 21, 2023</th>
+    <th>Programming, Debugging</th>
+</tr>
+<tr>
+    <th>February 21 – 28, 2023</th>
+    <th>Assembling vehicle chassis</th>
+</tr>
+<tr>
+    <th>IMPLEMENTATION PHASE</th>
+
+</tr>
+<tr>
+    <th>March 1 – 7, 2023</th>
+    <th>Initial Evaluation</th>
+</tr>
+<tr>
+    <th>March 8 – 14, 2023</th>
+    <th>Performance Evaluation</th>
+</tr>
+<tr>
+    <th>March 15 – 21, 2023</th>
+    <th>Data Collection</th>
+</tr>
+<tr>
+    <th>March 21 – 28, 2023</th>
+    <th>Data Collection and Analysis</th>
+</tr>
+   </table>
+
+   <h2>Gantt Chart of Activities</h2>
+
+<div class="ganttchart">
+    <div class="item1">Gantt Chart of Activities</div>
+    <div class="item1">October</div>
+    <div class="item1">November</div>
+    <div class="item1">December</div>
+    <div class="item1"></div>
+    <div class="item1">Activity</div>
+    
+
+</div>
+
+
+
+            </body>
+</html>
