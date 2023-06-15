@@ -26,3 +26,63 @@
     border: px solid black;
  
 }
+.ganttchart1{
+    border: 1px solid black;
+    display: grid;
+    grid-gap: 10px;
+   
+    grid:
+    'header header header header header header header header'
+    'Activity menu menu menu menu menu menu menu'
+    'Planning Planning Planning Planning Planning Planning Planning Planning'
+    'Planning Planning Planning Planning Planning Planning Planning Planning' 
+    ;
+
+}
+.item{ grid-area:t1;}
+.item1{grid-area:t2;}
+.item2{grid-area:t3;}
+.item3{grid-area:t4;}
+.item4{grid-area:t5;}
+.item5{grid-area:planning;}
+.item6{grid-area:planning;}
+.item7{grid-area:planning;}
+.item8{grid-area:planning;}
+.item9{grid-area:planning;}
+.item10{grid-area:planning;}
+.item11{grid-area:planning;}
+.item12{grid-area:planning;}
+.item13{grid-area:planning;}
+.item14{grid-area:planning;}
+.item15{grid-area:planning;}
+.item16{grid-area:planning;}
+.item17{grid-area:planning;}
+.item18{grid-area:planning;}
+.item19{grid-area:planning;}
+.item20{grid-area:planning;}
+.item21{grid-area:planning;}
+.item22{grid-area:planning;}
+.item23{grid-area:planning;}
+.item24{grid-area:planning;}
+.item25{grid-area:planning;}
+.item26{grid-area:planning;}
+.item27{grid-area:planning;}
+.item28{grid-area:planning;}
+.item29{grid-area:planning;}
+.item30{grid-area:planning;}
+.item31{grid-area:planning;}
+.item32{grid-area:planning;}
+.item33{grid-area:planning;}
+.item34{grid-area:planning;}
+.item35{grid-area:planning;}
+.item36{grid-area:planning;}
+.item37{grid-area:planning;}
+.item38{grid-area:planning;}
+.item39{grid-area:planning;}
+.item40{grid-area:planning;}
+.item41{grid-area:planning;}
+.item42{grid-area:planning;}
+.item43{grid-area:planning;}
+.item44{grid-area:planning;}
+
+
