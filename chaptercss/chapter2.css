@@ -10,18 +10,18 @@ body{
     width:25%;
     height:25%;
  
-   border: 1px solid black;
+   border: px solid black;
     
 }
 .flow2 img {
     width:25%;
     height:25%;
    
-   border: 1px solid black;
+   border: px solid black;
     
 }
 .tables {
-    border: 1px solid black;
+    border: px solid black;
     width: 32%;
     padding: 29px;
     padding: 2%;
@@ -35,7 +35,7 @@ body{
  
 }
 .ganttchart1{
-    border: 1px solid black;
+    border: px solid black;
     display: grid;
     grid-gap: 10px;
    
@@ -100,7 +100,7 @@ body{
 .item44{grid-area:t44;}
 
 .ganttchart2{
-    border: 1px solid black;
+    border: px solid black;
     display: grid;
     grid-gap: 10px;
 
@@ -174,13 +174,13 @@ body{
 .harder{
     display: grid;
     grid: auto /auto auto auto;
-    border: 1px solid black ;
+    border: px solid black ;
     padding:20px ;
 }
 .soft{
     display: grid;
     grid: auto /auto auto ;
-    border: 1px solid black ;
+    border: px solid black ;
     padding:20px ;
 }
 .solft{
