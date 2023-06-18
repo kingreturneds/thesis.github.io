@@ -198,7 +198,8 @@ body{
     display: grid;
     grid: auto /auto auto auto;
     border: px solid black ;
-    padding:20px ;
+    padding:20px;
+   
 }
 .soft{
     display: grid;
@@ -223,6 +224,7 @@ body{
 .hard img{
     width: 100%;
     height: 100%;
+    
 }
 .solft img{
     width: 80%;
@@ -265,4 +267,14 @@ p {
     border-radius: 1px;
     color: white;
    
+}
+.flow1s{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.flow2s{
+    display: flex;
+    justify-content: center;
+    align-items:center;
 }
