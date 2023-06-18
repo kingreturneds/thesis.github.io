@@ -56,7 +56,9 @@ img{
 @media only screen and (max-width:600px){
     body{
         background-color: rgb(235, 235, 243);
+
     }
+    
 }
 .btm{
     display: flex;
