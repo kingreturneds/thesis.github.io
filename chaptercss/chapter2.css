@@ -251,12 +251,12 @@ body{
 .flow1{
     display: flex;
     justify-content: center;
-    align-items:baseline;
+    align-items:center;
 }
 .flow2{
     display: flex;
     justify-content: center;
-    align-items:baseline;
+    align-items:center;
 }
 h2{
     display: grid;
@@ -273,7 +273,12 @@ p {
     justify-content: center;
     align-items:center;
 }
-.flow2s{
+.flow1s pre{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.flow2s pre{
     display: flex;
     justify-content: center;
     align-items:center;
