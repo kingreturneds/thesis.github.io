@@ -1,6 +1,7 @@
 *{
     padding: 1%;
     margin: 0%;
+    font-family: 'Times New Roman', Times, serif;
     
 }
 body {
@@ -25,7 +26,8 @@ body {
 .boddy{
     border: 1px solid black;
     margin: 2%;
-    background-color: aliceblue;
+    background-color:white;
+    border-radius: 25px;
 }
 .btm{
     display: flex;
@@ -44,4 +46,17 @@ body {
 .btm button:hover{
     
     box-shadow: 2px 2px 2px black;
+}
+p {
+    background-color: rgb(12, 12, 12);
+    border-radius: 1px;
+    color: white;
+   
+}
+h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:20px;
+    
 }
