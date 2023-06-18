@@ -1,6 +1,9 @@
 *{
-    padding: 0%;
+    padding: 1%;
     margin: 0%;
+}
+body{
+    background-color: white;
 }
 
 .flow1 img {
@@ -21,9 +24,11 @@
     border: 1px solid black;
     width: 32%;
     padding: 29px;
+    
 }
 .tables ,th {
     border: px solid black;
+  
  
 }
 .ganttchart1{
@@ -32,12 +37,18 @@
     grid-gap: 10px;
    
     grid:
-    'header header header header header header header header'
-    'Activity menu menu menu menu menu menu menu'
-    'Planning Planning Planning Planning Planning Planning Planning Planning'
-    'Planning Planning Planning Planning Planning Planning Planning Planning' 
+    't t t1 t1 t2 t2 t2 t2 t3 ' 
+    't4 t5 t6 t7 t8 t9 t10 t11 t12'
+    't13 t14 t15 t16 t16 t16 t16 t16 t16'
+    't13 t17 t18 t19 t20 t20 t20 t20 t20'
+    't13 t21 t22 t23 t24 t25 t25 t25 t25'
+    't26 t27 t28 t29 t30 t31 t32 t32 t32'
+    't26 t33 t34 t35 t36 t37 t37 t37 t37'
+    't26 t38 t39 t41 t41 t41 t41 t41 t41'
+    't26 t42 t43 t44 t44 t44 t44 t44 t44'
     ;
 
+    
 }
 .item{ grid-area:t;}
 .item1{grid-area:t1;}
@@ -85,4 +96,119 @@
 .item43{grid-area:t43;}
 .item44{grid-area:t44;}
 
+.ganttchart2{
+    border: 1px solid black;
+    display: grid;
+    grid-gap: 10px;
 
+    grid:
+    'q q q1 q1 q1 q1 q2 q2 q2 q2 '
+    'q3 q4 q5 q6 q7 q8 q9 q10 q11 q12'
+    'q13 q14 q15 q16 q16 q16 q16 q16 q16 q16'
+    'q13 q17 q18 q19 q20 q21 q21 q21 q21 q21'
+    'q13 q22 q23 q24 q25 q26 q26 q26 q26 q26'
+    'q13 q27 q28 q29 q30 q31 q32 q32 q32 q32'
+    'q33 q34 q35 q36 q37 q38 q39 q39 q39 q39'
+    'q33 q40 q41 q42 q43 q44 q44 q44 q44 q44'
+    'q33 q45 q46 q47 q48 q48 q48 q48 q48 q48'
+    'q33 q49 q50 q51 q51 q51 q51 q51 q51 q51'
+    ;
+    background-color: white;
+}
+.its{grid-area:q;}
+.its1{grid-area:q1;}
+.its2{grid-area:q2;}
+.its3{grid-area:q3;}
+.its4{grid-area:q4;}
+.its5{grid-area:q5;}
+.its6{grid-area:q6;}
+.its7{grid-area:q7;}
+.its8{grid-area:q8;}
+.its9{grid-area:q9;}
+.its10{grid-area:q10;}
+.its11{grid-area:q11;}
+.its12{grid-area:q12;}
+.its13{grid-area:q13;}
+.its14{grid-area:q14;}
+.its15{grid-area:q15;}
+.its16{grid-area:q16;}
+.its17{grid-area:q17;}
+.its18{grid-area:q18;}
+.its19{grid-area:q19;}
+.its20{grid-area:q20;}
+.its21{grid-area:q21;}
+.its22{grid-area:q22;}
+.its23{grid-area:q23;}
+.its24{grid-area:q24;}
+.its25{grid-area:q25;}
+.its26{grid-area:q26;}
+.its27{grid-area:q27;}
+.its28{grid-area:q28;}
+.its29{grid-area:q29;}
+.its30{grid-area:q30;}
+.its31{grid-area:q31;}
+.its32{grid-area:q32;}
+.its33{grid-area:q33;}
+.its34{grid-area:q34;}
+.its35{grid-area:q35;}
+.its36{grid-area:q36;}
+.its37{grid-area:q37;}
+.its38{grid-area:q38;}
+.its39{grid-area:q39;}
+.its40{grid-area:q40;}
+.its41{grid-area:q41;}
+.its42{grid-area:q42;}
+.its43{grid-area:q43;}
+.its44{grid-area:q44;}
+.its45{grid-area:q45;}
+.its46{grid-area:q46;}
+.its47{grid-area:q47;}
+.its48{grid-area:q48;}
+.its49{grid-area:q49;}
+.its50{grid-area:q50;}
+.its51{grid-area:q51;}
+
+.harder{
+    display: grid;
+    grid: auto /auto auto auto;
+    border: 1px solid black ;
+    padding:20px ;
+}
+.soft{
+    display: grid;
+    grid: auto /auto auto ;
+    border: 1px solid black ;
+    padding:20px ;
+}
+.solft{
+    display: flex;
+    justify-content: center;
+}
+.methodimgs{
+    display: flex;
+    justify-content: center;
+}
+.methodimgs1{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.btm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+  
+    
+
+}
+.btm button a{
+    text-decoration:none;
+    color:black;
+    padding: 2%;
+}
+.btm button:hover{
+    
+    box-shadow: 2px 2px 2px black;
+}
