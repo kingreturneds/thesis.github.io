@@ -24,6 +24,9 @@ body{
     border: 1px solid black;
     width: 32%;
     padding: 29px;
+    padding: 2%;
+    margin-left: 25%;
+    margin-right: 25%;
     
 }
 .tables ,th {
@@ -194,6 +197,14 @@ body{
     text-align: center;
     padding-bottom: 20px;
 }
+.hard img{
+    width: 100%;
+    height: 100%;
+}
+.solft img{
+    width: 80%;
+    height: 90%;
+}
 .btm{
     display: flex;
     justify-content: center;
@@ -211,4 +222,18 @@ body{
 .btm button:hover{
     
     box-shadow: 2px 2px 2px black;
+}
+.flow1{
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
+}
+.flow2{
+    display: flex;
+    justify-content: center;
+    align-items:baseline;
+}
+h2{
+    display: grid;
+    place-items: center;
 }
