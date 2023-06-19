@@ -35,7 +35,7 @@
  .apend .cont .content{
     position: relative;
     background: rgb(240, 235, 235);
-   
+   padding: 0%;
     height: 0;
     overflow:hidden;
     transition: 0.5s;
@@ -86,4 +86,10 @@
 .btm button:hover{
     
     box-shadow: 2px 2px 2px black;
+}
+p {
+    background-color: rgb(12, 12, 12);
+    border-radius: 1px;
+    color: white;
+   
 }

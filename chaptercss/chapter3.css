@@ -74,3 +74,13 @@ body{
     
     box-shadow: 2px 2px 2px black;
 }
+p {
+    background-color: rgb(12, 12, 12);
+    border-radius: 1px;
+    color: white;
+    
+}
+#psst{
+    background-color: white;
+    color: rgb(15, 15, 15);
+}
