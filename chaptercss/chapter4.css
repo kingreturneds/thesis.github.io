@@ -1,6 +1,11 @@
 *{
-    padding: 0%;
+    padding: 2%;
     margin: 0%;
+}
+.bodddy4{
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 25px;
 }
 .apend{
     max-width: 800px;
@@ -30,6 +35,7 @@
  .apend .cont .content{
     position: relative;
     background: rgb(240, 235, 235);
+   
     height: 0;
     overflow:hidden;
     transition: 0.5s;
@@ -44,3 +50,40 @@
     width: 30%;
     height: 20%;
  }
+ body{
+    background: linear-gradient(-45deg, #0f0d0d, #646263, #1b1c1d, #bdc2c1);
+	background-size: 600% 600%;
+	animation: wuu 10s ease infinite;
+    
+   
+}
+@keyframes wuu {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+
+}
+.btm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+  
+    
+
+}
+.btm button a{
+    text-decoration:none;
+    color:black;
+    padding: 2%;
+}
+.btm button:hover{
+    
+    box-shadow: 2px 2px 2px black;
+}
