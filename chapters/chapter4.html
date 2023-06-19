@@ -74,12 +74,419 @@
        <div class="content"><h3>User’s Manual of Design Prototype</h3>
         <h4>Outside</h4>
         <p>Step 1: Turn on the power source</p>
-
-       </div>
+        <img src="/picture/appendpic1.png">
+        <img src="/picture/appendpic2.png" >
+        <p>Step 2: Scan RFID card/tag</p>
+        <img src="/picture/appendpic3.png" >
+        <p>Step 3: The designated phone number will receive the OTP</p>
+        <img src="/picture/appendpic4.png" >
+        <p>Step 4: You may now enter the OTP using the keypad </p>
+        <img src="/picture/appendpic5.png" >
+        <p>Step 5: LED lights will turn to green or red (green means you have successfully opened the door and red means you make invalid OTP or RFID tags)</p>
+        <p>Step 6: Successfully unlock the door</p>
+        <img src="/picture/appendpic6.png" >
+        <h4>Inside</h4>
+        <p>Step 1: Click the designated button</p>
+        <img src="/picture/appendpic7.png" >
+        <p>Step 2: Successfully unlock the door</p>
+        <img src="/picture/appendpic8.png" >
+        <p>Step 3:  Click the “C” in the keypad</p>
+        <img src="/picture/appendpic9.png" >
+    </div>
    </div>
    <div class="cont">
     <div class="labal1">APPENDIX C</div>
-   <div class="content"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam tempore sapiente, voluptas reiciendis impedit voluptatibus tenetur quos odit laudantium mollitia tempora porro nobis reprehenderit veniam, iusto molestiae velit eaque enim?</p>
+   <div class="content"><h3>System Architecture</h3>
+    <img src="/picture/appendpic10.png" >
+    <h3>System Source Code</h3>
+    <p>#include <Servo.h>
+        #include <LiquidCrystal_I2C.h>
+        #include <Keypad.h>
+        #include <SPI.h>
+        #include <MFRC522.h>
+        #include <Timer.h>
+        
+        Timer timer;
+        
+        #define SS_PIN 53
+        #define RST_PIN 49
+        const int servoPin = 47; 
+        
+        Servo Servo1;
+        
+        const int redLED = 43;
+        const int greenLED = 41;
+        const int button = 39;
+        
+        MFRC522 mfrc522(SS_PIN, RST_PIN); // Instance of the class
+        
+        LiquidCrystal_I2C lcd(0x27,16,2);
+        
+        
+        const int KEYPAD_ROW_NUM = 4; //four rows
+        const int KEYPAD_COLUMN_NUM = 4; //three columns
+        
+        char keys[KEYPAD_ROW_NUM][KEYPAD_COLUMN_NUM] = {
+          {'1','2','3', 'A'},
+          {'4','5','6', 'B'},
+          {'7','8','9', 'C'},
+          {'*','0','#', 'D'}
+        };
+        
+        byte pin_rows[KEYPAD_ROW_NUM] = {9, 8, 7, 6}; //connect to the row pinouts of the keypad
+        byte pin_column[KEYPAD_COLUMN_NUM] = {5, 4, 3, 2}; //connect to the column pinouts of the keypad
+        
+        Keypad keypad = Keypad( makeKeymap(keys), pin_rows, pin_column, KEYPAD_ROW_NUM, KEYPAD_COLUMN_NUM );
+        
+        String inputOTP = "";
+        String currentRFID = "";
+        bool RFIDisSet = false;
+        bool doorUnlocked = false;
+        bool smsSent = false;
+        int attempt = 0;
+        int otpAttempt = 0;
+        bool isBackupMode = false;
+        
+        String generatedOTP = "zzzzzz";
+        int validRFIDIndex = -1;
+        bool alertSent = false;
+        
+        const int numberOfSavedRFID = 4;
+        const char* savedRFID[numberOfSavedRFID] = {" 83 ef 39 9f", " e3 72 b6 0d", " 93 17 c9 05", " b3 33 0d 13"};
+        const char* savedContactNumber[numberOfSavedRFID] = {"+639983705946","09619320902","09215003091","09654339113"};
+        
+        const int numberOfBackupCodes = 6;
+        
+        const char* backupCodes[numberOfBackupCodes] = {"382935259608","259608738581","738581024581","024581384382","384382024581","125593384382"};
+        
+        
+        void setup(){
+        
+          pinMode(redLED, OUTPUT);
+          pinMode(greenLED, OUTPUT);
+          pinMode(button, INPUT_PULLUP);
+          
+          Serial.begin(9600);     
+        
+          // lcd
+          lcd.init();
+          lcd.backlight();
+          lcd.setCursor(0,0);
+          lcd.print("Welcome!");
+        
+          // Sim
+          lcd.setCursor(0,1);
+          lcd.print("GSM Loading...  ");
+          Serial1.begin(9600);
+          delay(1000);
+          Serial1.println("AT");    //Sets the GSM Module in Text Mode
+          delay(1000);
+          Serial1.println("AT+CMGF=1");    //Sets the GSM Module in Text Mode
+          delay(1000);
+        
+          
+          // Servo
+          lcd.setCursor(0,1);
+          lcd.print("Servo Loading...");
+          Servo1.attach(servoPin);
+          Servo1.write(0); 
+          delay(500); 
+         
+          
+          //rfid
+          lcd.setCursor(0,1);
+          lcd.print("RFID Loading....");
+          SPI.begin();
+          mfrc522.PCD_Init();
+        
+          //lcd  
+          
+          delay(2000);
+          lcd.clear();
+        
+          timer.start();
+          timer.pause();
+        }
+        
+        // String number = "+639983705946";
+        int buttonState;
+        bool RFIDISSAVED = false;
+        long startTime = 0;
+        void loop(){
+          buttonState = (digitalRead(button));
+          //Serial.println(buttonState);
+          if(buttonState == HIGH){
+              if(!doorUnlocked) unlockDoor();      
+              else lockDoor();  
+              delay(500);    
+          }
+          if(!doorUnlocked){
+            listenKeyEvents(); 
+            if(isBackupMode){
+              timer.resume();
+              setScreenDisplay("Enter Backup:      ",hidePassword(inputOTP));
+              if(isOTPCorrect()) {
+                unlockDoor();
+                setScreenDisplay("Door Unlocked!  ","                ");
+                  
+              }
+              if(timer.read() >= startTime+10000){
+                reset();                      
+              }
+            } else if(!RFIDisSet){
+              //Serial.println(otpAttempt);
+              setScreenDisplay("Scan your RFID  ","                ");
+              readRFID();
+              RFIDISSAVED = isRFIDValid();
+              if(otpAttempt > 2 && !RFIDISSAVED){
+                setScreenDisplay("Maximum Attempt ","Limit Reached   ");
+                //redAlert(); 
+                digitalWrite(redLED,HIGH);
+                tone(45,794,5000); // 600000 
+                sendAlertSMS("Someone attempted to open the door");
+                                   
+                delay(5000); // 3600000
+                lcd.clear();
+                digitalWrite(redLED,LOW);
+                otpAttempt = 0; 
+                reset();
+              }
+              timer.pause();
+              
+            } else {
+              if(RFIDISSAVED){
+                timer.resume();
+        
+                if(!smsSent) {
+                  greenAlert();
+                  setScreenDisplay("Sending OTP     ","                ");
+                }                  
+                sendOTP();
+                setScreenDisplay("Enter OTP:      ",inputOTP);
+                   
+                if (Serial1.available() > 0) Serial.write(Serial1.read());
+                //listenKeyEvents();
+        
+                if(attempt > 2) {
+                  setScreenDisplay("Maximum Attempt ","Limit Reached   ");
+                  //redAlert(); 
+                  digitalWrite(redLED,HIGH);
+                  tone(45,794,5000); // 600000 
+                  sendAlertSMS("Someone attempted to open the door");
+                                     
+                  delay(5000); // 3600000
+                  lcd.clear();
+                  digitalWrite(redLED,LOW);
+                  attempt = 0; 
+                  reset();                                      
+                }
+        
+                if(isOTPCorrect()) {
+        
+                  unlockDoor();
+                  setScreenDisplay("Door Unlocked!  ","                ");
+                   
+                }
+        
+                if(timer.read() >= startTime+30000){
+                  reset();                      
+                }
+                
+              } else {
+                
+                redAlert();
+                sendAlertSMS("Someone attempted to open the door");
+                reset();
+              }
+              
+            }    
+          } else {
+            digitalWrite(greenLED,HIGH);
+            if(!alertSent) {
+              sendAlertSMS("Someone successfully opened the door");
+              alertSent = true;
+            }
+            setScreenDisplay("Door Unlocked!  ","                ");
+            listenKeyEvents();    
+          } 
+        }
+        
+        
+        
+        String hidePassword(String pwdStr){
+          String hiddenPwd = "";
+          for(int i = 0; i < pwdStr.length(); i++){
+            hiddenPwd += "*";
+          }
+          return hiddenPwd;
+        }
+        void redAlert(){
+          digitalWrite(redLED,HIGH);
+          setScreenDisplay("Invalid RFID!   ","                ");
+          tone(45,794,250);
+          delay(1000);
+          digitalWrite(redLED,LOW);
+          noTone(45);        
+        }
+        void greenAlert(){
+          digitalWrite(greenLED,HIGH);
+          tone(45,1024,250);
+          delay(500);
+          digitalWrite(greenLED,LOW);
+          noTone(45);    
+        }
+        bool isRFIDValid() {
+          for(int i = 0; i < numberOfSavedRFID; i++) {
+            if(String(savedRFID[i]) == currentRFID) {
+              validRFIDIndex = i;   
+              otpAttempt = 0;                           
+              return true;
+            }
+          }
+          return false;
+        }
+        void unlockDoor(){
+          Servo1.write(120);       
+          doorUnlocked = true;
+        }
+        void lockDoor() {
+          reset();
+        }
+        void setScreenDisplay(String l1, String l2) {
+          lcd.setCursor(0,0);
+          lcd.print(l1);
+          lcd.setCursor(0,1);
+          lcd.print(l2);
+        }
+        void clearInput(){
+          inputOTP = "";
+          lcd.clear();
+        }
+        bool isOTPCorrect() { 
+          for(int j = 0; j < numberOfBackupCodes; j++) {
+            if(String(backupCodes[j]) == inputOTP) {                       
+              return true;
+            }
+          }   
+          return generatedOTP == inputOTP;
+        }
+        void reset(){
+          startTime = 0;
+          inputOTP = "";
+          currentRFID = "";
+          RFIDisSet = false;
+          smsSent = false;
+          generatedOTP = "zzzzzz";  
+          validRFIDIndex = -1;
+          doorUnlocked = false;
+          alertSent = false;
+          isBackupMode = false;
+          Servo1.write(0); 
+          digitalWrite(greenLED,LOW);
+        }
+        void listenKeyEvents() {
+          char key = keypad.getKey();
+          if (key){
+            if(key == 'D'){
+              clearInput();
+            } else if(key == 'B'){
+              isBackupMode = true;      
+            } else if (key == 'C'){
+              reset();
+            }  else {
+              inputOTP += key;
+              if(!isBackupMode && inputOTP.length() > 6) {
+                attempt++;
+                clearInput();
+              }                  
+            }
+            startTime = timer.read();    
+          }  
+        }
+        void sendOTP() {
+          if(!smsSent){
+            //Generate Here
+            String generatedNumber = String(random(111111,999999));
+        
+        
+            // Send SMS HERE
+            Serial.println ("Sending Message");
+            //Serial.println ("Set SMS Number");
+            Serial1.println("AT+CMGS=\""+String(savedContactNumber[validRFIDIndex])+"\""); //Mobile phone number to send message
+            delay(500);
+            Serial1.print("Your OTP is "+generatedNumber);
+            delay(500);
+            Serial1.write(26);// ASCII code of CTRL+Z
+            delay(1000);
+            // _buffer = _readSerial();
+            if (Serial1.available() > 0)
+            Serial.write(Serial1.read());
+            Serial.println ("Sent Message");    
+            Serial.println(generatedNumber);
+          
+        
+            // Set OTP Variable
+            generatedOTP = generatedNumber;
+        
+            smsSent = true;
+          }
+          
+        }
+        void readRFID() {
+           if(mfrc522.PICC_IsNewCardPresent()){
+            Serial.println("Read");
+            
+            if(mfrc522.PICC_ReadCardSerial()){
+              // Serial.println("UID:");
+              
+              String detected_id = "";
+              for(byte i = 0; i < mfrc522.uid.size; i++){
+                detected_id += String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
+                detected_id += String(mfrc522.uid.uidByte[i], HEX);
+              }
+              currentRFID = detected_id;
+              // Serial.println(currentRFID);
+              RFIDisSet = true;
+              otpAttempt += 1;
+              mfrc522.PICC_HaltA();
+              startTime = timer.read();      
+            } else {
+              if(!RFIDisSet) currentRFID = "                ";            
+            }
+            
+          } else {
+            if(!RFIDisSet) currentRFID = "                ";  
+          }
+        }
+        
+        void sendAlertSMS(String message){
+            //Serial.println ("Set SMS Number");
+            Serial1.println("AT+CMGS=\""+String(savedContactNumber[3])+"\""); //Mobile phone number to send message
+            delay(500);
+            Serial1.print(message);
+            delay(500);
+            Serial1.write(26);// ASCII code of CTRL+Z
+            delay(1000);
+            // _buffer = _readSerial();
+            if (Serial1.available() > 0)
+            Serial.write(Serial1.read());
+        }</p>
+
+   </div>
+   
+</div>
+<div class="cont">
+    <div class="labal1">APPENDIX D</div>
+   <div class="content"><h3>Resource Person/s</h3>
+       <P>Mr. Jimmy D.V. Roldan<br>
+        Program Head, CpE/CS/IT<br>
+        Colegio de San Gabriel Arcangel<br>
+        0922-8628826</P><br><br>
+        <P>Engr. Mark S. Guerrero<br>
+            Instructor<br>
+            Colegio de San Gabriel Arcangel
+        </P>
+       
    </div>
 </div>
 </div>
