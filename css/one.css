@@ -44,9 +44,7 @@ body{
     display: flex;
     justify-content: center;
 }
-.yuu ul{
 
-}
 .yuu ul li {
     display: inline-block;
    
@@ -162,4 +160,11 @@ color: #fff;
     border: none;
     
 }
+@media  screen and (max-width: 600px)    {
+    body{
+        display: grid;
+       
+        
+    }
 
+}
