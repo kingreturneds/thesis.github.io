@@ -1,0 +1,41 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+.apend{
+    max-width: 800px;
+}
+.apend .cont{
+    position: relative;
+    margin: 10px 20px;
+}
+.apend .cont .labal1{
+   position: relative;
+   padding: 10px;
+   background-color: rgb(7, 7, 7);
+   color: rgb(250, 245, 245);
+   cursor: pointer;
+}
+.apend .cont .labal1::before{
+   content:'+';
+   position: absolute;
+   top: 50%;
+   right: 20px;
+   transform: translateY(-50%);
+ }
+ .apend .cont.active .labal1::before{
+    content:'-';
+    
+ }
+ .apend .cont .content{
+    position: relative;
+    background: rgb(240, 235, 235);
+    height: 0;
+    overflow:hidden;
+    transition: 0.5s;
+    overflow-y: auto;
+   
+ }
+ .apend .cont.active .content{
+    height: 500px;
+ }
