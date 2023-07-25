@@ -7,6 +7,7 @@ body{
     background: linear-gradient(-45deg, #0f0d0d, #646263, #1b1c1d, #bdc2c1);
 	background-size: 600% 600%;
 	animation: wuu 10s ease infinite;
+    animation : transitionIn 1s;
     
    
 }
@@ -283,4 +284,14 @@ p {
     display: flex;
     justify-content: center;
     align-items:center;
+}
+@keyframes transitionIn {
+    from{
+        opacity: 0;
+        transition: rotateY(-15px);
+    }
+    to{
+        opacity:1;
+        transition: rotateY(0);
+    }
 }

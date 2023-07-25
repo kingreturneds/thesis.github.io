@@ -6,9 +6,8 @@ body{
    
     background: linear-gradient(-45deg, #0f0d0d, #646263, #1b1c1d, #bdc2c1);
 	background-size: 600% 600%;
-    animation : transitionIn 1s;
 	animation: wuu 19s ease infinite;
-    
+    animation : transitionIn 1s;
    
 }
 @keyframes wuu {
@@ -103,7 +102,7 @@ body{
         transition: rotateY(-15px);
     }
     to{
-        opacity: 1;
+        opacity:1;
         transition: rotateY(0);
     }
 }
