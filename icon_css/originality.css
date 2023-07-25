@@ -80,13 +80,3 @@ body{
 .ori h2 {
     padding-bottom: 0%;
 }
-@keyframes transitionIn {
-    from {
-        opacity: 0;
-        transition: rotateY(-15px);
-    }
-    to {
-        opacity: 1;
-        transition: rotateY(0);
-    }
-}
