@@ -5,7 +5,7 @@
 }
 body{
     background-color: rgb(172, 165, 165);
-    
+    animation: transitionIn 1s;
 }
 .yapp{
     margin: 25px;
@@ -77,4 +77,14 @@ hr{
     height: 1px;
     background-color: white;
     box-shadow: 2px 2px 8px black;
+}
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transition: rotateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transition: rotateY(0);
+    }
 }
