@@ -57,3 +57,13 @@ body{
     align-items: center;
     margin-top: 5%;
 }
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        transition: rotateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transition: rotateY(0);
+    }
+}
