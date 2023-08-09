@@ -39,16 +39,18 @@ body{
  
 .yuu{
     margin-top: 1px;
+    flex-direction: row;
    
 }
 .yuu ul{
     display: flex;
     justify-content: center;
+    flex-direction: row;
 }
 
 .yuu ul li {
     display: inline-block;
-   
+    flex-direction: row;
     
 }
 .yuu ul li a{
@@ -57,6 +59,7 @@ body{
     padding-right: 23px;
    font-size: larger;
    font-family: 'Courier New', Courier, monospace;
+   flex-direction: row;
    
 }
 
@@ -65,6 +68,7 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
    
 }
 .project ul li a:hover{
@@ -108,6 +112,7 @@ color: #fff;
     color: #0c0c0c;
     border: px solid black;
     border-radius: 5%;
+   
   
 }
 .project a:hover{
@@ -161,21 +166,55 @@ color: #fff;
     border: none;
     
 }
-@media (max-width: 40em)    {
+@media (max-width: 40em){
    .project{
-    display: inline-block;
-
+   display: inline-block;
     font-size: 9px;
    }
    .project li a{
-    display: flex;
     flex-direction: column;
-   
+
    }
    .you h1{
-    width: 100%;
-   }
+    font-size: 20px;
     
+   }
+   .yuu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+   }
+   .yuu ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+   .yuu ul li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   }
+   .yuu ul li a{
+    display: flex;  
+    font-size: 2em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+   .projects{
+    font-size: 20px;
+    flex-direction: column;
+   }
+   .projects ul li a{
+    font-size: 20px;
+    flex-direction: column;
+   }
+   
+
 
 
 }
