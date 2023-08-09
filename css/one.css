@@ -17,18 +17,17 @@
 
 
 body{
-   
     background: linear-gradient(-45deg, #0f0d0d, #646263, #1b1c1d, #bdc2c1);
 	background-size: 400% 400%;
-	animation: wuu 19s ease infinite;
-    animation: transitionIn 1s;
+	animation: transitionIn 1s, wuu 19s ease infinite;
+   
 	
 }
-@keyframes wuu {
-	0% {
+@keyframes wuu{
+	0%{
 		background-position: 0% 50%;
 	}
-	50% {
+	50%{
 		background-position: 100% 50%;
 	}
 	100% {
@@ -36,6 +35,7 @@ body{
 	}
 
 }
+
  
 .yuu{
     margin-top: 1px;
@@ -161,12 +161,22 @@ color: #fff;
     border: none;
     
 }
-@media  screen and (max-width: 600px)    {
-    body{
-        display: grid;
-       
-        
-    }
+@media (max-width: 40em)    {
+   .project{
+    display: inline-block;
+
+    font-size: 9px;
+   }
+   .project li a{
+    display: flex;
+    flex-direction: column;
+   
+   }
+   .you h1{
+    width: 100%;
+   }
+    
+
 
 }
 @keyframes transitionIn {
@@ -178,5 +188,7 @@ color: #fff;
         opacity: 1;
         transition: rotateY(0);
     }
+    
 
 }
+
