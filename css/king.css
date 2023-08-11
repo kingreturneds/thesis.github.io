@@ -55,6 +55,10 @@ img{
     body{
         background-color: rgb(235, 235, 243);
     }
+    .king img{
+        width:100%;
+    }
+
 }
 .btm{
     display: flex;

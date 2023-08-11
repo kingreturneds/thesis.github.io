@@ -56,6 +56,9 @@ img{
     body{
         background-color: rgb(235, 235, 243);
     }
+    .tnap img{
+        width:100%;
+    }
 }
 .btm{
     display: flex;
