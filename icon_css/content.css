@@ -112,3 +112,28 @@ h1{
     
     box-shadow: 2px 2px 2px black;
 }
+@media(max-width:600px){
+    body{
+        background-color: rgb(235, 235, 243);
+    }
+   .content-container{
+	width: fit-content;
+   }
+   .item1{
+	width: fit-content;
+   }
+   .content-container1{
+	width: fit-content;
+   }
+   .content-container2{
+	width: fit-content;
+   }
+   .content-container3{
+	width: fit-content;
+   }
+   .content-container4{
+	width: fit-content;
+   }
+
+
+}
